@@ -1,11 +1,13 @@
 import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
-import fileouter from './api/routes/fileRouter';
+import fileRouter from './api/routes/fileRouter';
+import cookieParser from "cookie-parser";
 
 const app = express();
 const port = 3001;
 
+app.use(cookieParser());
 
 app.use(
   helmet({
@@ -25,7 +27,7 @@ app.get('/', (req, res) => {
 
 
 // bind base url for all file routes to mediaRouter
-app.use("/", fileouter);
+app.use("/", fileRouter);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
