@@ -1,9 +1,7 @@
 import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
-import path from 'path';
-import { fileURLToPath } from "url";
-// import fileRoute from './api/routes/fileRoute';
+import fileouter from './api/routes/fileRouter';
 
 const app = express();
 const port = 3001;
@@ -21,13 +19,13 @@ app.use('/uploads', express.static('uploads'));
 
 app.get('/', (req, res) => {
   res.json({
-    message: 'API docs tulossa',
+    message: 'routes; /upload',
   });
 });
 
 
 // bind base url for all file routes to mediaRouter
-// app.use("/", fileRoute);
+app.use("/", fileouter);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
