@@ -1,0 +1,13 @@
+{
+  "name": "Valita project, Upload API",
+  "version": "1.0.0",
+  "description": "",
+  "title": "Upload API",
+  "url": "http://localhost:3001/",
+  "template": {
+    "withCompare": true,
+    "withGenerator": true
+  },
+  "exclude": ["node_modules/", "public/"],
+  "files": ["src/**/**/*.ts"]
+}
