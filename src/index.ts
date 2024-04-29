@@ -3,6 +3,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import fileRouter from './api/routes/fileRouter';
 import cookieParser from "cookie-parser";
+import { errorHandler, notFoundHandler } from './middlewares';
 
 const app = express();
 const port = 3001;
@@ -30,6 +31,9 @@ app.get('/', (req, res) => {
 
 // bind base url for all file routes to mediaRouter
 app.use("/", fileRouter);
+
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);

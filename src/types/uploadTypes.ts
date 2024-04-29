@@ -3,4 +3,9 @@ type TokenContent = {
   level_name: string;
 };
 
-export type { TokenContent };
+type MessageResponse = {
+  message: string;
+};
+
+
+export type { TokenContent, MessageResponse };

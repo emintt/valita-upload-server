@@ -1,6 +1,8 @@
 import express, {Request} from 'express';
 import { uploadFile } from "../controllers/uploadController";
 import multer, { FileFilterCallback } from "multer";
+import { authenticate } from '../../middlewares';
+import CustomError from '../../classes/CustomError';
 
 
 
@@ -64,8 +66,9 @@ const fileFilter = (
   file: Express.Multer.File,
   cb: FileFilterCallback
 ) => {
+  console.log('file at multer', file);
   if (file.mimetype.includes('image')) {
-    console.log('file at multer', file);
+    console.log('image at multer', file);
     cb(null, true);
   } else {
     cb(null, false);
@@ -85,6 +88,6 @@ const fileouter = express.Router();
 
 fileouter
   .route('/upload')
-  .post(upload.single('file'), uploadFile);
+  .post(authenticate, upload.single('file'), uploadFile);
 
 export default fileouter;
