@@ -37,7 +37,6 @@ const authenticate = async (
     }
 
     const token = authHeader.split(' ')[1];
-    console.log(process.env.JWT_SECRET);
     const decodedToken = jwt.verify(
       token,
       process.env.JWT_SECRET as string

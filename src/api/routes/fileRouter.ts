@@ -7,8 +7,8 @@ import CustomError from '../../classes/CustomError';
 
 
 /**
- * @apiDefine cookies Logged in user access only
- * Valid authentication cookies must be provided within request.
+ * @apiDefine token Logged in user access only
+ * Valid authentication token must be provided within request.
  */
 
 /**
@@ -36,11 +36,11 @@ import CustomError from '../../classes/CustomError';
  * @apiVersion 1.0.0
  * @apiName Uploadfile
  * @apiGroup Upload
- * @apiPermission cookies
+ * @apiPermission Bearer Token
  *
  * @apiDescription Upload an image to the server.
  *
- * @apiHeader {String} cookies Users unique cookie key and value.
+ * @apiHeader {String} Authorization Users unique access-token (Bearer Token).
  * @apiBody {FormData} file image file.
  *
  * @apiSuccess {Object} data  Object containing file info.
