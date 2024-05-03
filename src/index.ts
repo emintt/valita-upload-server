@@ -5,9 +5,9 @@ import fileRouter from './api/routes/fileRouter';
 import cookieParser from "cookie-parser";
 import { errorHandler, notFoundHandler } from './middlewares';
 
-const app = express();
-const port = 3001;
 
+const app = express();
+const port = process.env.port;
 app.use(cookieParser());
 
 app.use(
