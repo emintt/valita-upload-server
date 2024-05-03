@@ -7,7 +7,7 @@ import { errorHandler, notFoundHandler } from './middlewares';
 
 
 const app = express();
-const port = process.env.port;
+const port = 3001;
 app.use(cookieParser());
 
 app.use(
